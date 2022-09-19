@@ -81,12 +81,13 @@ import { Options, Vue } from 'vue-class-component'
       this.$emit('ratBack1e')
     },
     ratDancedF () {
-      this.ratDanced += 1
-      // this.ratDance -= 1
-      // if (this.ratDance <= 1) {
-      //   this.ratEnergy = false
-      // }
-      console.log(this.ratDance)
+      // this.ratDanced += 1
+      // // this.ratDance -= 1
+      // // if (this.ratDance <= 1) {
+      // //   this.ratEnergy = false
+      // // }
+      // console.log(this.ratDance)
+      this.$emit('ratRancedEmit')
     },
     // ratE () {
     //   this.ratDance = 50
@@ -95,7 +96,7 @@ import { Options, Vue } from 'vue-class-component'
     //     this.ratEnergy = false
     //   }
     // },
-    variantUpdate (index) {
+    variantUpdate (index:any) {
       this.selectedRat = index
     }
   },
