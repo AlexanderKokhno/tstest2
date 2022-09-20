@@ -26,6 +26,7 @@
               <p v-if='ratDance > 25 '>Dancing</p>
               <p v-else-if='ratDance > 0 '>Dancing but tired</p>
               <p v-else>💀 no more Dance 💀</p>
+              <p> VipWatch: {{VipWatch}}</p>
             </div>
             <div>
               <li v-for = 'detail in details' :key="detail">{{detail}}</li>
@@ -33,7 +34,6 @@
           </div>
           <div class='rat-dance'>
             <button class='button' @click="ratDancedF" :disabled='!ratDance' :class='{disabledButton: !ratDance}'>Danced?</button>
-            <p>The rat danced {{ratDanced}} times</p>
           </div>
         </div>
       </div>
@@ -45,7 +45,11 @@ import { Options, Vue } from 'vue-class-component'
 
 @Options({
   props: {
-    msg: String
+    msg: String,
+    RatVIP: {
+      type: Boolean,
+      required: true
+    }
   },
   data () {
     return {
@@ -72,13 +76,12 @@ import { Options, Vue } from 'vue-class-component'
           color: 'purple',
           quantity: 0
         }
-      ],
-      ratDanced: 0
+      ]
     }
   },
   methods: {
     ratBack1 () {
-      this.$emit('ratBack1e')
+      this.$emit('ratBack1E')
     },
     ratDancedF () {
       // this.ratDanced += 1
@@ -87,7 +90,8 @@ import { Options, Vue } from 'vue-class-component'
       // //   this.ratEnergy = false
       // // }
       // console.log(this.ratDance)
-      this.$emit('ratRancedEmit')
+      this.$emit('ratRancedEmit', this.variants[this.selectedRat].id)
+      console.log('emitted')
     },
     // ratE () {
     //   this.ratDance = 50
@@ -109,6 +113,12 @@ import { Options, Vue } from 'vue-class-component'
     },
     ratDance () {
       return this.variants[this.selectedRat].quantity
+    },
+    VipWatch () {
+      if (this.RatVIP) {
+        return 'VIP'
+      }
+      return 'Plebian'
     }
   }
   // created: function () {
