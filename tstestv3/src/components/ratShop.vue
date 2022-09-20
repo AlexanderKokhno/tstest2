@@ -35,6 +35,9 @@
           <div class='rat-dance'>
             <button class='button' @click="ratDancedF" :disabled='!ratDance' :class='{disabledButton: !ratDance}'>Danced?</button>
           </div>
+          <div>
+            <review-form @review-submitted="addReview"></review-form>
+          </div>
         </div>
       </div>
   </div>
@@ -76,7 +79,8 @@ import { Options, Vue } from 'vue-class-component'
           color: 'purple',
           quantity: 0
         }
-      ]
+      ],
+      reviews: []
     }
   },
   methods: {
@@ -102,6 +106,9 @@ import { Options, Vue } from 'vue-class-component'
     // },
     variantUpdate (index:any) {
       this.selectedRat = index
+    },
+    addReview (review:any) {
+      this.reviews.push(review)
     }
   },
   computed: {
