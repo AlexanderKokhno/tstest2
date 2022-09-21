@@ -3,8 +3,6 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <p>The rat danced {{ratDanced.length}} times</p>
     <ratShop @ratBack1E='ratBack1_change' :RatVIP='RatVIP' @ratRancedEmit='ratBack1E'>
-      <rat-comments/>
-      <ratCDisplay/>
     </ratShop>
 
   </div>
@@ -12,16 +10,12 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
-import ratShop from '@/components/ratShop.vue'
-import ratCDisplay from '@/components/ratCDisplay.vue'
-import ratComments from '@/components/ratComments.vue' // @ is an alias to /src
+import ratShop from '@/components/ratShop.vue' // @ is an alias to /src
 
 @Options({
   /* eslint-disable */
   components: {
-    ratShop,
-    ratComments,
-    ratCDisplay
+    ratShop
   },
   data () {
     return {

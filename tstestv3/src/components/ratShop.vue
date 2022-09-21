@@ -35,18 +35,23 @@
           <div class='rat-dance'>
             <button class='button' @click="ratDancedF" :disabled='!ratDance' :class='{disabledButton: !ratDance}'>Danced?</button>
           </div>
-          <div>
-            <review-form @review-submitted="addReview"></review-form>
-          </div>
         </div>
       </div>
+      <ratCDisplay v-if="reviews.length" :reviews='reviews'></ratCDisplay>
+      <ratComments @review-submitted="addReview"></ratComments>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
+import ratCDisplay from '@/components/ratCDisplay.vue'
+import ratComments from '@/components/ratComments.vue'
 
 @Options({
+  components: {
+    ratComments,
+    ratCDisplay
+  },
   props: {
     msg: String,
     RatVIP: {
@@ -108,7 +113,9 @@ import { Options, Vue } from 'vue-class-component'
       this.selectedRat = index
     },
     addReview (review:any) {
+      console.log(review)
       this.reviews.push(review)
+      console.log(this.reviews)
     }
   },
   computed: {

@@ -39,6 +39,10 @@ import { Options, Vue } from 'vue-class-component'
   },
   methods: {
     onSubmit () {
+      if (this.name === '' || this.review === '' || this.rating === null || this.recommend === null) {
+        alert('Review is incomplete. Please fill out every field.')
+        return
+      }
       const productReview = {
         // is never reassigned. Use 'const' instead  prefer-const. Const can be used since productReview isnt being changed but productReview.name etc
         name: this.name,
