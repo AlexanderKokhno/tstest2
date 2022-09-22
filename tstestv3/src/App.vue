@@ -1,7 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Rat Shop</router-link> |
-    <router-link to="/about">WIP</router-link>
+    <router-link to="/about">TS WIP</router-link>
   </nav>
   <router-view/>
 </template>
