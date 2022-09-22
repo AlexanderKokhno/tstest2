@@ -6,10 +6,32 @@
         <li v-for="(review, index) in reviews" :key="index">
           {{ review.name }} gave this {{ review.rating }} stars
           <br/>
-          "{{ reviews.review }}"
+          "{{ review.review }}"
           <br/>
         </li>
       </ul>
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
+
+@Options({
+  props: {
+    reviews: {
+      type: Array,
+      required: true
+    }
+  }
+})
+export default class ratShop extends Vue {
+  msg!: string
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+@import '../assets/style.css';
+
+</style>
