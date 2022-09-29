@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Rat Shop</router-link> |
-    <router-link to="/about">Shell Types</router-link> |
+    <router-link to="/">Rat Shop (V)</router-link> |
+    <router-link to="/about">Shell Types (V + TS)</router-link> |
     <router-link to="/other">Other & Credits</router-link>
   </nav>
   <router-view/>
